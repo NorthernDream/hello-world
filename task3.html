@@ -4,95 +4,118 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, user-scalable=NO">
     <title>task3</title>
     <style >
-        h1,h2,h3,h4,h5,h6,ul,ol,li,dl,p,{
+        h1,h2,h3,h4,h5,h6,ul,ol,li,dl,p{
             padding: 0;
             margin: 0;
         }
         body{
             background-color: rgb(238,240,244);
+            margin: 0;
         }
         .header{
             color: white;
-            line-height: 45px;
-            height: 45px;
+            line-height: 100px;
+            height: 100px;
             background-color: rgb(90,192,206);
         }
         .header-left{
-            font-size: 16px;
+            font-size: 30px;
             text-align: center;
             float: left;
             width: 15%;
         }
         .header-center{
-            font-size: 18px;
+            font-size: 36px;
             text-align: center;
             float: left;
             width: 70%;
         }
         .header-right{
-            font-size: 16px;
+            font-size: 30px;
             text-align: center;
             width: 15%;
             float: left;
         }
         .phone,.password{
-            margin: 10px auto;
+            margin: 16px auto;
             background-color: rgb(255,255,255);
-            height: 50px;
+            height: 100px;
         }
         .password-left,.phone-left{
-            width: 10%;
+            height: 50px;
+            width: 15%;
             text-align: center;
             float: left;
         }
-        .password-right,.phone-right{
-            width: 80%;
+        .border{
+            border-color: rgb(225,229,231);
             float: left;
+            margin: 25px auto;
+            height: 50px;
+            width: 2%;
+            border-style: ridge;
+            border-width: 0 0 0 2px;
+        }
+        input::-webkit-input-placeholder {
+            display: block;
+            padding: 7px ;
+            color: rgb(225,229,231);
+            font-size: 32px;
+        }
+        .password-right,.phone-right{
+            padding: auto;
+            width: 80%;
+            float: right;
         }
         .password-footer{
-            font-size: 16px;
+            font-size: 30px;
+            margin-top: 20px;
             color: rgb(90,192,206);
             float: right;
             text-align: center;
-            width: 15%;
         }
         img{
-            height: 30px;
-            margin: 10px auto;
+            height: 40px;
+            margin: 30px auto;
         }
         input{
-            height: 30px;
+            height: 50px;
             width: 100%;
-            margin: 10px auto;
+            margin: 25px auto;
             float: right;
-            border-width: 0 0 0 2px;
-            border-style: ridge;
+            border-width: 0;
+
             outline: none;
+            font-size: 36px;
+            padding: auto 10px;
         }
         .sign{
+            margin-top: 70px;
+            font-size: 36px;
             color: white;
-            line-height: 45px;
-            height: 45px;
+            line-height: 100px;
+            height: 100px;
             background-color: rgb(90,192,206);
             text-align: center;
-            font-size: 20px;
         }
     </style>
 </head>
 <body>
-<div class="header">
+<<div class="header">
     <div class="header-left">注册</div>
     <div class="header-center">登陆</div>
     <div class="header-right">关闭</div>
 </div>
 <div class="input">
     <div class="phone">
-    <div class="phone-left"><img src="image/phone.png" ></div>
-    <div class="phone-right"><input type="text" maxlength="11" height="30px" placeholder="请输入手机号"></div>
+        <div class="phone-left"><img src="image/phone.png" ></div>
+        <div class="border"></div>
+        <div class="phone-right"><input type="text" maxlength="11" height="30px" placeholder="请输入手机号"></div>
     </div>
     <div class="password">
-    <div class="password-left"><img src="image/password.png"  ></div>
-    <div class="password-right"><input type="password" maxlength="16" height="30px" placeholder="请输入密码"></div>
+        <div class="password-left"><img src="image/password.png"  ></div>
+        <div class="border"></div>
+        <div class="password-right"><input type="password" maxlength="16" height="30px" placeholder="请输入密码"></div>
     </div>
     <div class="sign">登陆</div>
     <div class="password-footer">忘记密码?</div>
