@@ -96,7 +96,6 @@
         .site{
             font-size: 20px;
             margin-left: 40px;
-            position: absolute;
         }
         .img {
             float: left;
@@ -124,8 +123,6 @@
         .require{
             height: 100px;
             margin: 0 3% ;
-            border: solid rgb(230,230,230);
-            border-width: 0 0 1px 0;
         }
         .label{
             position: absolute;
@@ -164,12 +161,15 @@
             color: #e26163;
         }
         .introduce{
+            display: flex;
+            align-items:center;
+            width: 100%;
             min-height: 100px;
             border:solid #e1e5e7;
             border-width: 0 0 1px 0;
         }
         .introduce-left{
-            position: absolute;
+            float: left;
             height: 50px;
             margin: 25px 3%;
             border-style:solid;
@@ -181,7 +181,7 @@
             color: #999999;
         }
         .introduce-right{
-            margin-left: 33% ;
+            margin-left: 3% ;
             padding-top:25px;
             padding-bottom: 25px;
             font-size: 30px;
