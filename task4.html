@@ -11,6 +11,10 @@
         body{
             margin: 0;
         }
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
         header{
             position: fixed;
             top: 0;
@@ -21,7 +25,7 @@
         }
         .header-left{
             height: 37px;
-            margin: 12px 0 30px 5%;
+            margin: 12px 0 0 5%;
             float: left;
             width: 10%;
         }
@@ -67,7 +71,9 @@
             margin: 27px auto;
         }
         .top{
-            margin-top: 100px;
+            overflow: hidden;
+            zoom: 1;
+            margin-top: 99px;
             height: 300px;
             background: url("image/background.png") no-repeat;
             background-size: cover;
@@ -101,6 +107,7 @@
             float: left;
         }
         .skill{
+            overflow: hidden;
             height: 100px;
             border:solid rgb(230,230,230);
             border-width: 0 0 1px 0;
@@ -121,8 +128,11 @@
             margin: 34px 0 34px 5%;
         }
         .require{
+            overflow: hidden;
+            margin-left: 3%;
             height: 100px;
-            margin: 0 3% ;
+            border:solid #e1e5e7;
+            border-width: 0 0 1px 0;
         }
         .label{
             float: left;
@@ -132,36 +142,8 @@
         }
 
         .warp{
-            height: 100px;
-            width: 100%;
-            margin: 0 0 0 3% ;
-            border:solid #e1e5e7;
-            border-width: 0 0 1px 0;
-        }
-        .left{
-            float: left;
-            height: 50px;
-            margin:  25px 0;
-            border-style:solid;
-            border-color: #e1e5e7;
-            border-width: 0 1px 0 0;
-            width: 25%;
-            text-align: center;
-            font-size: 30px;
-            color: #999999;
-        }
-        .right{
-            margin: 25px 0 25px 5% ;
-            float: left;
-            text-align: center;
-            font-size: 30px;
-            height: 50px;
-            color: #333333;
-        }
-        .red{
-            color: #e26163;
-        }
-        .introduce{
+            overflow: hidden;
+            margin-left: 3%;
             display: flex;
             align-items:center;
             width: 100%;
@@ -169,9 +151,9 @@
             border:solid #e1e5e7;
             border-width: 0 0 1px 0;
         }
-        .introduce-left{
+        .left{
             float: left;
-            height: 50px;
+            min-height: 50px;
             margin: 25px 0 25px 3%;
             border-style:solid;
             border-color: #e1e5e7;
@@ -181,7 +163,7 @@
             font-size: 30px;
             color: #999999;
         }
-        .introduce-right{
+        .right{
             margin-left: 3% ;
             padding-top:25px;
             padding-bottom: 25px;
@@ -189,6 +171,14 @@
             min-height: 50px;
             color: #333333;
             width: 65%;
+        }
+        .red{
+            color: #e26163;
+        }
+        .empty{
+            height: 150px;
+            border:solid #e1e5e7;
+            border-width: 1px 0 0 0;
         }
     </style>
 </head>
@@ -215,12 +205,13 @@
     <div class="warp"><div class="left">从业年限</div><div class="right"><p>0-3年</p></div></div>
     <div class="warp"><div class="left">工作时间</div><div class="right"><p>全天</p></div></div>
     <div class="warp"><div class="left">服务价格</div><div class="right"><p class="red">20元/小时</p></div></div>
-    <div class="introduce"><div class="introduce-left"><p>自我介绍</p></div><div class="introduce-right">可以洗衣、做饭、照顾老人。在护工方面有5年的经验，经验丰富。</div></div>
+    <div class="warp"><div class="left"><p>自我介绍</p></div><div class="right">可以洗衣、做饭、照顾老人。在护工方面有5年的经验，经验丰富。</div></div>
 </main>
 <footer>
     <div class="footer-left"><div class="footer-text">留言</div></div>
     <div class="footer-right"><div class="footer-text">电话联系</div></div>
 </footer>
+<div class="empty"></div>
 
 
 </body>
