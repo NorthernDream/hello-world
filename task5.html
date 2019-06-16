@@ -95,10 +95,6 @@
         .tea{
             padding: 0;
             margin: 0;
-            white-space:nowrap;
-            text-overflow:ellipsis;
-            -o-text-overflow:ellipsis;
-            overflow: hidden;
         }
         .wrap{
 
@@ -113,7 +109,7 @@
             margin-bottom: 10px;
         }
         .date{
-            float: left;
+            display: inline-block;
             padding: 0;
             height: 15px;
             width: 15px;
@@ -121,7 +117,7 @@
             background-position: -15px -50px;
         }
         .site{
-            float: left;
+            display: inline-block;
             padding: 0;
             height: 15px;
             width: 15px;
@@ -129,7 +125,7 @@
             background-position: -0 -50px;
         }
         .box1{
-            float: left;
+            display: inline-block;
             padding: 0;
             height: 15px;
             font-size: 13px;
@@ -139,7 +135,7 @@
             color: #999;
         }
         .box2{
-            float: left;
+            display: inline-block;
             padding: 0;
             height: 15px;
             font-size: 14px;
@@ -148,7 +144,7 @@
             margin-left: 30px;
         }
         .box3{
-            float: right;
+            display: inline-block;
             padding: 0;
             white-space:nowrap;
             text-overflow:ellipsis;
@@ -161,7 +157,7 @@
             color: #e63b0e;
         }
         .font{
-            float: right;
+            display: inline-block;
             margin: 28px 10% 22px 10%;
             height: 20px;
             width: 10px;
@@ -193,9 +189,20 @@
 </footer>
 <main>
     <div class="top text-center">
-        <div class="col-xs-4 tea"><div role="button" class="btn  dropdown-toggle name bea" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">所在地<span class="caret"></span></div></div>
-        <div class="col-xs-4 tea"><div role="button" class="btn  dropdown-toggle name bea" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">食宿<span class="caret"></span></div></div>
-        <div class="col-xs-4 tea"><div role="button" class="btn dropdown-toggle name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">病人情况<span class="caret"></span></div>
+        <div class="col-xs-4 tea">
+            <div role="button" class="btn  dropdown-toggle name bea" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                所在地<span class="caret"></span>
+            </div>
+        </div>
+        <div class="col-xs-4 tea">
+            <div role="button" class="btn  dropdown-toggle name bea" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                食宿<span class="caret"></span>
+            </div>
+        </div>
+        <div class="col-xs-4 tea">
+            <div role="button" class="btn dropdown-toggle name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            病人情况<span class="caret"></span>
+            </div>
             <ul class="dropdown-menu">
                 <li><a href="#">手术后</a></li>
                 <li><a href="#">半失能</a></li>
@@ -211,7 +218,7 @@
             <div class="box"><div class="site"></div><div class="box1">北京.通州.果园</div></div>
         </div>
         <div class="col-xs-4 tea">
-            <div class="font"></div><div class="box3">25元/小时</div>
+            <div class="box3">25元/小时</div><div class="font"></div>
         </div>
     </div>
     <div class="wrap">
@@ -221,7 +228,7 @@
             <div class="box"><div class="site"></div><div class="box1">北京.通州.果园</div></div>
         </div>
         <div class="col-xs-4 tea">
-            <div class="font"></div><div class="box3">25元/小时</div>
+            <div class="box3">25元/小时</div><div class="font"></div>
         </div>
     </div>
     <div class="wrap">
@@ -231,7 +238,7 @@
             <div class="box"><div class="site"></div><div class="box1">北京.通州.果园</div></div>
         </div>
         <div class="col-xs-4 tea">
-            <div class="font"></div><div class="box3">25元/小时</div>
+            <div class="box3">25元/小时</div><div class="font"></div>
         </div>
     </div>
     <div class="wrap">
@@ -241,7 +248,7 @@
             <div class="box"><div class="site"></div><div class="box1">北京.通州.果园</div></div>
         </div>
         <div class="col-xs-4 tea">
-            <div class="font"></div><div class="box3">25元/小时</div>
+            <div class="box3">25元/小时</div><div class="font"></div>
         </div>
     </div>
     <div class="wrap">
@@ -251,20 +258,9 @@
             <div class="box"><div class="site"></div><div class="box1">北京.通州.果园</div></div>
         </div>
         <div class="col-xs-4 tea">
-            <div class="font"></div><div class="box3">25元/小时</div>
+            <div class="box3">25元/小时</div><div class="font"></div>
         </div>
     </div>
-    <div class="wrap">
-        <div class="col-xs-8 tea">
-            <div class="box"><div class="date"></div><div class="box1" >服务日期</div></div>
-            <div class="box"><div class="box2">2015-7-5 至 2015-7-12</div></div>
-            <div class="box"><div class="site"></div><div class="box1">北京.通州.果园</div></div>
-        </div>
-        <div class="col-xs-4 tea">
-            <div class="font"></div><div class="box3">25元/小时</div>
-        </div>
-    </div>
-
 </main>
 <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
