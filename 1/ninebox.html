@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, user-scalable=NO">
     <title>九宫格</title>
-    <script src="ninebox.js"></script>
     <style type="text/css">
         body{
             margin: 0;
@@ -16,13 +15,11 @@
             width: 100%;
         }
         .box {
-            margin: 1%;
-            padding-top: 33%;
-            border-width: 0;
-            box-sizing: border-box;
-            background-color: rgb(254,165,0);
+            margin: 0.5%;
+            width: 32.3%;
+            padding-bottom: 30%;
+            background-color: #fea500;
             border-radius: 10%;
-            width: 31.33%;
         }
     </style>
 </head>
@@ -38,9 +35,53 @@
     <div class="box"></div>
     <div class="box"></div>
 </div>
-<div onload="">开始</div>
-<div onload="">停止</div>
+<button  id="start">开始</button>
+<button  id="end">结束</button>
+<script>
+    var box = document.getElementsByClassName("box");
+    var i;
+    /*遍历9个格子重置颜色*/
+    function reset() {
+        for (i = 0; i < box.length; i++) {
+            box[i].style.background = "#fea500";
+        }
+    }
 
+    /*做一个随机颜色函数返回随机颜色*/
+    function color() {
+        let r=Math.floor(Math.random()*256);
+        let g=Math.floor(Math.random()*256);
+        let b=Math.floor(Math.random()*256);
+        return "rgb("+r+','+g+','+b+")";
+    }
+
+    //开始闪
+    function change() {//随机抽取三个格子变色
+        reset();
+        let a = [];
+        //定义一个放格子下标的空数组
+        //生成0-9的随机数
+        for (i=0;i<9;i++){
+            a[i]=i;
+        }
+        a.sort(function(){ return 0.5 - Math.random(); });
+        for (i=0;i<3;i++){
+            box[a[i]].style.background = color();
+        }
+    }
+
+    var z;//定义一个名叫z的全局变量
+    start.onclick =function start() {//触发变色
+        clearInterval(z);//停止周期调用函数
+        z = setInterval("change()", 1000);//将周期调用函数放入z变量并直接触发
+    }
+
+    /*结束闪*/
+    end.onclick =function over() {//停止变色并重置
+        clearInterval(z);//停止周期调用函数
+        reset();
+    }
+</script>
 
 </body>
 </html>
