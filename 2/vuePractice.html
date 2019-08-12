@@ -1,22 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <title>0</title>
+    <style>
+        .active{
+            font-size: 50px;
+        }
+    </style>
 </head>
 <body>
-<div id="app">
-    {{ message }}
+<ul>
+    <a>neir</a>
+</ul>
+
+<div id="vue_det">
+    <h1>site : {{site}}</h1>
+    <h1>url : {{url}}</h1>
+    <h1>{{details()}}</h1>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script>
-    var app = new Vue({
-        el: '#app',
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#vue_det',
         data: {
-            message: 'Hello Vue!'
+            site: "菜鸟教程",
+            url: "www.runoob.com",
+            alexa: "10000"
+        },
+        methods: {
+            details: function() {
+                return  this.site + " - 学的不仅是技术，更是梦想！";
+            }
         }
     })
-
 </script>
 </body>
 </html>
