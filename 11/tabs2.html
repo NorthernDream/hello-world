@@ -37,7 +37,7 @@
 <!-- HTML页面布局 -->
 <div id = "tab">
         <ul >
-        <li class="on nav">房产
+        <li class="nav" id="nav">房产
             <div class="container hide">
                     <ul class="data">
                             <li>275万购昌平邻铁三居 总价20万买一居</li>
@@ -48,7 +48,8 @@
             </div>
         </li>
         <li class="nav">家居
-            <div class="container hide"><ul>
+            <div class="container hide">
+                <ul class="data">
                     <li>40平出租屋大改造 美少女的混搭小窝</li>
                     <li>经典清新简欧爱家 90平老房焕发新生</li>
                     <li>新中式的酷色温情 66平撞色活泼家居</li>
@@ -56,7 +57,8 @@
                 </ul></div>
         </li>
         <li class="nav">二手房
-            <div class="container hide"><ul>
+            <div class="container hide">
+                <ul class="data">
                     <li>通州豪华3居260万 二环稀缺2居250w甩</li>
                     <li>西3环通透2居290万 130万2居限量抢购</li>
                     <li>黄城根小学学区仅260万 121平70万抛!</li>
@@ -66,13 +68,30 @@
         </ul>
         <div clas="container" id="tabc"></div>
 </div>
-<button onclick="myFunction()">亲自试一试</button>
 <script>
-function myFunction()
-{
-var myLi=document.getElementsByClassName("data")[0];
-document.getElementById("tabc").appendChild(myLi);
+var myTab = document.getElementById("tabs");
+var myNav = myTab.getElementsByClassName("nav");
+var myData = myTab.getElementsByClassName("data");
+
+for(var i = 0; i < myNav.length; i++){
+    myNav[i].onclick = function(){
+        document.getElementById("tabc").innerHTML = "";
+        var itm=document.getElementsByClassName("data")[i];
+        var cln=itm.cloneNode(true);
+        document.getElementById("tabc").appendChild(cln);
+    }
 }
+
+
+/*
+myNav.onclick = function ()
+{
+document.getElementById("tabc").innerHTML = "";
+var itm=document.getElementsByClassName("data")[0];
+var cln=itm.cloneNode(true);
+document.getElementById("tabc").appendChild(cln);
+}
+*/
 </script>
 </body>
 </html>
