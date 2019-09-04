@@ -7,37 +7,12 @@
      /* CSS样式制作 */  
        .hide{display:none;}
     </style>
-
-    <script type="text/javascript">
-/*   // JS实现选项卡切换
-    window.onload = function(){ 
-    var myTab = document.getElementById("tab");    //整个div
-    var myUl = myTab.getElementsByTagName("ul")[0];//一个节点
-    var myLi = myUl.getElementsByTagName("li");    //数组
-    var myDiv = myTab.getElementsByTagName("div"); //数组
-
-    for(var i = 0; i<myLi.length;i++){
-        myLi[i].index = i;
-        myLi[i].onclick = function(){
-            for(var j = 0; j < myLi.length; j++){
-                myLi[j].className="";
-                myDiv[j].className = "hide";
-            }
-            this.className = "on";
-            myDiv[this.index].className = "";
-        }
-      }
-    }
-*/
-
-    </script>
-
 </head>
 <body>
 <!-- HTML页面布局 -->
 <div id = "tab">
         <ul >
-        <li class="nav" id="nav">房产
+        <li class="nav" id="nav" >房产
             <div class="container hide">
                     <ul class="data">
                             <li>275万购昌平邻铁三居 总价20万买一居</li>
@@ -66,32 +41,24 @@
             </ul></div>
         </li>
         </ul>
-        <div clas="container" id="tabc"></div>
+        <div class="container" id="tabc"></div>
+        <button onclick="fu()">按钮</button>
 </div>
 <script>
-var myTab = document.getElementById("tabs");
+var myTab = document.getElementById("tab");
 var myNav = myTab.getElementsByClassName("nav");
 var myData = myTab.getElementsByClassName("data");
 
-for(var i = 0; i < myNav.length; i++){
+function fu(){for(var i = 0; i < 3; i++){
+    myNav[i].index = i;
     myNav[i].onclick = function(){
         document.getElementById("tabc").innerHTML = "";
         var itm=document.getElementsByClassName("data")[i];
         var cln=itm.cloneNode(true);
         document.getElementById("tabc").appendChild(cln);
     }
-}
+}} 
 
-
-/*
-myNav.onclick = function ()
-{
-document.getElementById("tabc").innerHTML = "";
-var itm=document.getElementsByClassName("data")[0];
-var cln=itm.cloneNode(true);
-document.getElementById("tabc").appendChild(cln);
-}
-*/
 </script>
 </body>
 </html>
