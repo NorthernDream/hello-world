@@ -7,12 +7,13 @@
 <body>
 <script>
     var stu = '';
-    for(var i = 1; i <= 9; i++){
-        for(var j = i; j <= 9; j++){
-            stu +=  i  + '*' +  j  + '=' + i * j + ' \t ';
+    for(var i = 1; i < 10; i++){
+        for(var j = i; j < 10; j++){
+            stu +=  i  + '*' +  j  + '=' + i * j + '\t';
         }
         stu += '\n';
     }
+    document.write(stu);
     console.log(stu);
 </script>
 </body>
