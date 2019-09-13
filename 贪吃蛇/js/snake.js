@@ -6,7 +6,7 @@
         options = options || {};
         this.width = options.width || 20;
         this.height = options.height || 20;
-        this.directin = options.direction || 'right';
+        this.direction = options.direction || 'right';
         this.body = [{
                 x: 3,
                 y: 2,
@@ -15,21 +15,21 @@
             {
                 x: 2,
                 y: 2,
-                color: 'green'
+                color: 'blue'
             },
             {
                 x: 1,
                 y: 2,
-                color: 'green'
+                color: 'blue'
             }
         ];
     }
 
     Snake.prototype.render = function (map) {
         remove();
-        
+
         for (var i = 0, len = this.body.length; i < len; i++) {
-            
+
             var object = this.body[i];
             var div = document.createElement('div');
             map.appendChild(div);
@@ -50,19 +50,35 @@
         }
     }
 
-    Snake.prototype.move = function () {
-        for (var i = this.body.length - 1; i > 0; i --) {
+    Snake.prototype.move = function (food, map) {
+        for (var i = this.body.length - 1; i > 0; i--) {
             this.body[i].x = this.body[i - 1].x;
             this.body[i].y = this.body[i - 1].y;
         }
-
-        switch(this.direction) {
-            case 'right':this.body[0].x += 1;break;
-            case 'left':this.body[0].x -= 1;break;
-            case 'top':this.body[0].y += 1;break;
-            case 'bottom':this.body[0].y -= 1;break;
+        switch (this.direction) {
+            case 'right':
+                this.body[0].x += 1;
+                break;
+            case 'left':
+                this.body[0] -= 1;
+                break;
+            case 'top':
+                this.body[0].y -= 1;
+                break;
+            case 'bottom':
+                this.body[0].y += 1;
+                break;
         }
-                    
+
+
+        if (this.body[0].x * this.width === food.x && this.body[0].y * this.height === food.y) {
+            this.body.push({
+                x: this.body[this.body.length - 1].x,
+                y: this.body[this.body.length - 1].y,
+                color: this.body[this.body.length - 1].color,
+            })
+            food.render(map);
+        }
     }
     window.Snake = Snake;
 })()
