@@ -9,14 +9,15 @@
 <body>
   <script>
     console.log('start');
-
     setTimeout(function () {
       console.log('timeout1');
     }, 300);
     setTimeout(function () {
       console.log('timeout2');
     }, 0);
-
+    setTimeout(function () {
+      console.log('timeout2');
+    }, 200);
     console.log('over');
   </script>
 </body>
