@@ -1,18 +1,27 @@
 
 function ajax(obj){
-    // 默认参数
     var defaults = {
         type : 'get',
-        data : {},
+        async : true,
         url : '#',
         dataType : 'text',
-        async : true,
-        success : function(data){console.log(data)}
+        jsonp : 'callback',
+        data : {},
+        success:function(data){console.log(data);}
     }
-    // 处理形参，传递参数的时候就覆盖默认参数，不传递就使用默认参数
+
     for(var key in obj){
         defaults[key] = obj[key];
     }
+
+    if(defaults.dataType == 'jsonp'){
+        ajax4Jsonp(defaults);
+    }else{
+        ajax4Json(defaults);
+    }
+}
+
+function ajax4Json(defaults){
     // 1、创建XMLHttpRequest对象
     var xhr = null;
     if(window.XMLHttpRequest){
@@ -27,8 +36,8 @@ function ajax(obj){
     username=zhangsan&password=123
     */
     var param = '';
-    for(var attr in obj.data){
-        param += attr + '=' + obj.data[attr] + '&';
+    for(var attr in defaults.data){
+        param += attr + '=' + defaults.data[attr] + '&';
     }
     if(param){
         param = param.substring(0,param.length - 1);
@@ -68,5 +77,31 @@ function ajax(obj){
             }
         }
     }
+}
+function ajax4Jsonp(defaults){
+    // 这里是默认的回调函数名称
+    // expando: "jQuery" + ( version + Math.random() ).replace( /\D/g, "" ),
+    var cbName = 'jQuery' + ('1.11.1' + Math.random()).replace(/\D/g,"") + '_' + (new Date().getTime());
+    if(defaults.jsonpCallback){
+        cbName = defaults.jsonpCallback;
+    }
 
+    // 这里就是回调函数，调用方式：服务器响应内容来调用
+    // 向window对象中添加了一个方法，方法名称是变量cbName的值
+    window[cbName] = function(data){
+        defaults.success(data);//这里success的data是实参
+    }
+
+    var param = '';
+    for(var attr in defaults.data){
+        param += attr + '=' + defaults.data[attr] + '&';
+    }
+    if(param){
+        param = param.substring(0,param.length-1);
+        param = '&' + param;
+    }
+    var script = document.createElement('script');
+    script.src = defaults.url + '?' + defaults.jsonp + '=' + cbName + param;
+    var head = document.getElementsByTagName('head')[0];
+    head.appendChild(script);
 }
